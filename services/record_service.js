@@ -41,7 +41,7 @@ const recordDataService = async (id, weight, typeData, conn) => {
 
 const selectRecordByUser = async (user_id) => {
     const result = await userDao.isExistUser(user_id);
-    if(!result){
+    if(result.length){
         const error = new Error({ message: "USER_THAT_DO_NOT_EXIST"}.message);
         error.statusCode = 400;
         throw error;
